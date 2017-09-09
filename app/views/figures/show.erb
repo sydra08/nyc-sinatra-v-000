@@ -1,1 +1,5 @@
-<h1>Show a single figure</h1>
+<h1><%=@figure.name%></h1>
+
+<p><strong>Title(s): </strong><%=@figure.titles.collect{|t| t.name}.join(", ")%></p>
+
+<p><strong>Landmark(s): </strong><%=@figure.landmarks.collect{|l| l.name}.join(", ")%></p>

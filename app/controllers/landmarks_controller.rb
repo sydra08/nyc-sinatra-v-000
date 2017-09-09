@@ -5,7 +5,8 @@ class LandmarksController < ApplicationController
   end
 
   post '/landmarks' do
-    #create a new landmark and redirect to index
+    @landmark = Landmark.create(params[:landmark])
+
     redirect to '/landmarks'
   end
 
@@ -19,13 +20,15 @@ class LandmarksController < ApplicationController
   end
 
   get '/landmarks/:id/edit' do
+    @landmark = Landmark.find(params[:id])
     erb :'/landmarks/edit'
   end
 
   patch '/landmarks/:id' do
-    # update a landmark
-    # create or update figure
-    redirect to "/landmarks/show/#{@landmark.id}"
+    @landmark = Landmark.find(params[:id])
+    @landmark.update(params[:landmark])
+
+    redirect to "/landmarks/#{@landmark.id}"
   end
 
 end

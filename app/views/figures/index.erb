@@ -1,1 +1,8 @@
-<h1>Show All Figures</h1>
+<h1>All Figures</h1>
+<br/>
+
+<ul>
+  <% Figure.all.each do |f| %>
+    <li><a href="/figures/<%=f.id%>"><%=f.name%></a></li>
+  <% end %>
+</ul>
